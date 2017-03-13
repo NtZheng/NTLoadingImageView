@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "NTLoadingImageView.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) NTLoadingImageView *loadingImageView;
 
 @end
 
@@ -16,13 +19,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self.loadingImageView showLoadingImageViewAddedTo:self.view animated:YES];
+    
 }
 
+#pragma mark - lazy load
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NTLoadingImageView *)loadingImageView {
+    if (_loadingImageView == nil) {
+        
+        // 图片源
+        NSMutableArray *imageArray = [NSMutableArray array];
+        for (int i = 0; i < 32; i++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"加载动画_%d",i]];
+            [imageArray addObject:image];
+        }
+        
+        // 添加图片源
+        _loadingImageView = [[NTLoadingImageView alloc]initWithImageArray:imageArray];
+        
+        // frame
+        _loadingImageView.frame = CGRectMake(100, 100, 64, 64);
+    }
+    return _loadingImageView;
 }
 
 
