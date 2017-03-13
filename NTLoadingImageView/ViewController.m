@@ -22,6 +22,7 @@
     
     [self.loadingImageView showLoadingImageViewAddedTo:self.view animated:YES];
     
+//    [self.loadingImageView disappearLoadingImageWithAnimation:YES];
 }
 
 #pragma mark - lazy load

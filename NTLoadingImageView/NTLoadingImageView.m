@@ -19,11 +19,12 @@
 - (instancetype)initWithImageArray :(NSMutableArray *)imageArray {
     if (self = [super init]) {
         self.imageArray = imageArray;
-        
+        self.repeatCount = 0;
+        self.duration = 1;
         // 设置动画属性
         self.animationImages = self.imageArray;
-        self.animationDuration = 1;
-        self.animationRepeatCount = 0;
+        self.animationDuration = self.duration;
+        self.animationRepeatCount = self.repeatCount;
         [self startAnimating];
     }
     return self;
