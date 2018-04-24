@@ -3,7 +3,7 @@
 
 * 使用方法
 
-```
+```objc
 // 图片源
 NSMutableArray *imageArray = [NSMutableArray array];
 for (int i = 0; i < 32; i++) {
